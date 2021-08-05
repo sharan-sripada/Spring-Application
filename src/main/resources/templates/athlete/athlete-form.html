@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Add Medal Entry</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Athlete </h3>
+    <hr>
+
+    <p class="h4 mb-4">Add Athlete</p>
+
+    <form action="#" th:action="@{/athlete/save}"
+          th:object="${athlete}" method="POST">
+
+        <div class="form-inline">
+            <input type="text" th:field="*{id}"
+                   class="form-control mb-4 col-4" placeholder="Id">
+            <span th:if="${#fields.hasErrors('id')}"
+                  th:errors="*{id}"
+                  class="badge badge-danger ml-2 mb-4"></span>
+
+        </div>
+
+
+        <div class="form-inline">
+
+            <input type="text" th:field="*{name}"
+                   class="form-control mb-4 col-4" placeholder="Name">
+
+            <span th:if="${#fields.hasErrors('name')}"
+                  th:errors="*{name}"
+                  class="badge badge-danger ml-2 mb-4"></span>
+        </div>
+
+        <div class="form-inline">
+
+            <input type="text" th:field="*{country}"
+                   class="form-control mb-4 col-4" placeholder="Country">
+            <span th:if="${#fields.hasErrors('country')}"
+                  th:errors="*{country}"
+                  class="badge badge-danger ml-2 mb-4"></span>
+
+        </div>
+        <div class="form-inline">
+
+            <input type="text" th:field="*{height}"
+                   class="form-control mb-4 col-4" placeholder="Height">
+            <span th:if="${#fields.hasErrors('height')}"
+                  th:errors="*{height}"
+                  class="badge badge-danger ml-2 mb-4">Height</span>
+
+
+        </div>
+        <div class="form-inline">
+
+            <input type="text" th:field="*{weight}"
+                   class="form-control mb-4 col-4" placeholder="Weight">
+            <span th:if="${#fields.hasErrors('weight')}"
+                  th:errors="*{weight}"
+                  class="badge badge-danger ml-2 mb-4">Weight</span>
+
+
+        </div>
+
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+
+    <hr>
+    <a th:href="@{/athlete/list}">Back to Athletes List</a>
+
+</div>
+</body>
+
+</html>
