@@ -1,7 +1,6 @@
 package com.spring.application.service;
 
 import com.spring.application.dao.MedalRepository;
-import com.spring.application.entity.Country;
 import com.spring.application.entity.Medal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,8 +41,9 @@ public class MedalServiceImpl implements MedalService {
 
 	@Override
 	@Transactional
-	public void save(Medal medal) {
+	public Medal save(Medal medal) {
 		medalRepository.save(medal);
+		return medal;
 	}
 
 	@Override

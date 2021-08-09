@@ -51,8 +51,8 @@ public class Medal {
     public Medal() {
     }
 
-    public Medal( int gold, int silver, int bronze) {
-
+    public Medal( int id,int gold, int silver, int bronze) {
+        this.id=id;
         this.gold = gold;
         this.silver = silver;
         this.bronze = bronze;

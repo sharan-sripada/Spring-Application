@@ -10,7 +10,7 @@ public interface AthleteService {
 	
 	public Athlete findById(int theId);
 	
-	public void save(Athlete athlete);
+	public Athlete save(Athlete athlete);
 	
 	public void deleteById(int theId);
 

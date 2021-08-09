@@ -41,9 +41,10 @@ public class AthleteServiceImpl implements AthleteService {
 
 	@Override
 	@Transactional
-	public void save(Athlete athlete) {
+	public Athlete save(Athlete athlete) {
 		athleteRepository.save(athlete);
-	}
+        return athlete;
+    }
 
 	@Override
 	@Transactional
