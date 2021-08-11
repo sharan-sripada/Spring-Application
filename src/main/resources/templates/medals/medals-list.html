@@ -52,7 +52,7 @@
             <th>Gold</th>
             <th>Silver</th>
             <th>Bronze</th>
-            <th>Action</th>
+            <th sec:authorize="hasRole('TRACKER')">Action</th>
         </tr>
         </thead>
 
@@ -71,7 +71,7 @@
             <td th:text="${medal.gold}" />
             <td th:text="${medal.silver}" />
             <td th:text="${medal.bronze}" />
-            <td>
+            <td sec:authorize="hasRole('TRACKER')">
 
                 <a th:href="@{/medal/update(id=${medal.id})}"
                    class="btn btn-info btn-sm">

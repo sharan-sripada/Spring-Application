@@ -15,6 +15,7 @@ public class Medal {
 
     @Id
     @Column(name = "id")
+    @NotNull(message = "Enter a number")
     public  int id;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -29,9 +30,12 @@ public class Medal {
         this.athlete = athlete;
     }
 
+    @NotNull(message = "Enter a number")
     @Column(name="gold")
     private int gold;
 
+
+    @NotNull(message = "Enter a number")
     @Column(name="silver")
     private int silver;
 
@@ -43,6 +47,7 @@ public class Medal {
         this.id = id;
     }
 
+    @NotNull(message = "Enter a number")
     @Column(name="bronze")
     private int bronze;
 

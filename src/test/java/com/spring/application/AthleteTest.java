@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 
 
 @SpringBootTest(classes = {com.spring.application.Application.class})
-public class AthleteTest extends ApplicationTests {
+public class AthleteTest  {
     @Test
     void contextLoads() {}
     private AthleteService athleteService;

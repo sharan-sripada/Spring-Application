@@ -7,10 +7,12 @@ import com.spring.application.entity.Medal;
 import com.spring.application.service.AthleteService;
 import com.spring.application.service.MedalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@EnableAspectJAutoProxy
 @RequestMapping("/medal")
 public class MedalController {
     MedalService medalService;
@@ -83,6 +86,15 @@ public class MedalController {
                 return "medals/medals-form";
             }
             else {
+                int id= theMedal.id;
+                Athlete athlete=athleteService.findById(id);
+                if(athlete==null)
+                {
+                    ObjectError error = new ObjectError("globalError", "Enter correct Athlete id");
+                    bindingResult.addError(error);
+                    return "medals/medals-form";
+
+                }
                 medalService.save(theMedal);
 
                 // use a redirect to prevent duplicate submissions

@@ -27,9 +27,9 @@
         <div class="form-inline">
             <input type="text" th:field="*{id}"
                    class="form-control mb-4 col-4" placeholder="Id">
-            <span th:if="${#fields.hasErrors('id')}"
-                  th:errors="*{id}"
-                  class="badge badge-danger ml-2 mb-4"></span>
+            <span th:if="${#fields.hasErrors('id')} or ${#fields.hasErrors('global')}"
+
+                  class="badge badge-danger ml-2 mb-4">Enter correct Athlete id</span>
 
         </div>
 
@@ -40,8 +40,8 @@
                    class="form-control mb-4 col-4" placeholder="Gold">
 
             <span th:if="${#fields.hasErrors('gold')}"
-                  th:errors="*{gold}"
-                  class="badge badge-danger ml-2 mb-4"></span>
+
+                  class="badge badge-danger ml-2 mb-4">Enter a number</span>
         </div>
 
         <div class="form-inline">
@@ -49,8 +49,8 @@
             <input type="text" th:field="*{silver}"
                    class="form-control mb-4 col-4" placeholder="Silver">
             <span th:if="${#fields.hasErrors('silver')}"
-                  th:errors="*{silver}"
-                  class="badge badge-danger ml-2 mb-4"></span>
+
+                  class="badge badge-danger ml-2 mb-4">Enter a number</span>
 
         </div>
 
@@ -59,7 +59,6 @@
             <input type="text" th:field="*{bronze}"
                    class="form-control mb-4 col-4" placeholder="Bronze">
             <span th:if="${#fields.hasErrors('bronze')}"
-                  th:errors="*{bronze}"
                   class="badge badge-danger ml-2 mb-4">Enter a number</span>
 
 

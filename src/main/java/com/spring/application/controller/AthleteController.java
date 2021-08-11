@@ -3,14 +3,17 @@ package com.spring.application.controller;
 import com.spring.application.entity.Athlete;
 import com.spring.application.entity.Medal;
 import com.spring.application.service.AthleteService;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@EnableAspectJAutoProxy
 @RequestMapping("/athlete")
 public class AthleteController {
     AthleteService athleteService;
@@ -39,9 +42,16 @@ public class AthleteController {
                              BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
+
             return "athlete/athlete-form";
         }
         else {
+            if(athlete.getName().isEmpty()||athlete.getCountry().isEmpty()){
+                ObjectError error = new ObjectError("globalError", "Cannot be null");
+                bindingResult.addError(error);
+                return "athlete/athlete-form";
+            }
+
             athleteService.save(athlete);
 
             // use a redirect to prevent duplicate submissions

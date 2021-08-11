@@ -15,7 +15,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
 
 @SpringBootTest(classes = {Application.class})
-public class MedalTest extends ApplicationTests {
+public class MedalTest{
     @Test
     void contextLoads() {}
     private MedalService medalService;

@@ -52,7 +52,7 @@
             <th>Country</th>
             <th>Height</th>
             <th>Weight</th>
-                <th>Action</th>
+                <th sec:authorize="hasRole('REGISTER')">Action</th>
 
 
 
@@ -75,7 +75,7 @@
             <td th:text="${athlete.weight}" />
 
 
-            <td>
+            <td sec:authorize="hasRole('REGISTER')">
 
                 <a th:href="@{/athlete/update(id=${athlete.id})}"
                    class="btn btn-info btn-sm">

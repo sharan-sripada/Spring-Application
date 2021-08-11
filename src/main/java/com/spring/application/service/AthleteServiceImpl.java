@@ -34,7 +34,8 @@ public class AthleteServiceImpl implements AthleteService {
 			athlete=result.get();
 		}
 		else {
-			throw new RuntimeException("No athlete with id:"+theId);
+
+			return null;
 		}
 		return athlete;
 	}
