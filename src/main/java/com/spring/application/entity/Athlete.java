@@ -32,8 +32,7 @@ public class Athlete {
     @Column(name = "weight")
     private int weight;
 
-    @OneToOne(mappedBy="athlete",
-            cascade=CascadeType.ALL)
+    @OneToOne(mappedBy="athlete")
     private Medal medal;
 
     public Athlete() {

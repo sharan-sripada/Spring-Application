@@ -3,6 +3,8 @@ package com.spring.application.controller;
 import com.spring.application.entity.Athlete;
 import com.spring.application.entity.Medal;
 import com.spring.application.service.AthleteService;
+import com.spring.application.service.MedalService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,9 @@ import java.util.List;
 @RequestMapping("/athlete")
 public class AthleteController {
     AthleteService athleteService;
+    @Autowired
+    MedalService medalService;
+
     AthleteController(AthleteService athleteService){
         this.athleteService=athleteService;
     }
@@ -75,6 +80,7 @@ public class AthleteController {
     @GetMapping("/delete")
     public String delete(@RequestParam("id") int theId) {
 
+        medalService.deleteById(theId);
 
         athleteService.deleteById(theId);
 

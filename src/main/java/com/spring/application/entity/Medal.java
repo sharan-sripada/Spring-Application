@@ -18,7 +18,7 @@ public class Medal {
     @NotNull(message = "Enter a number")
     public  int id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @PrimaryKeyJoinColumn()
     private Athlete athlete;
 
